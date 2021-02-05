@@ -1,7 +1,19 @@
 on:
   pull_request:
     types: [opened, synchronize]
+
 jobs:
+  flake8:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Flake8 Linter Step
+        uses: betrybe/flake8-linter-action@v1.2
+        id: flake8_linter
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pr_number: ${{ github.event.number }}
+          
   evaluator_job:
     name: Evaluator Job
     runs-on: ubuntu-18.04
@@ -13,12 +25,6 @@ jobs:
         options: -v ${{ github.workspace }}:/github/workspace
     steps:
       - uses: actions/checkout@v2
-      - name: Flake8 Linter Step
-        uses: betrybe/flake8-linter-action@v1.2
-        id: flake8_linter
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          pr_number: ${{ github.event.number }}
       - name: Pytest Evaluator Step
         uses: betrybe/pytest-evaluator-action@v1.3
         with:
