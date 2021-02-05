@@ -1,0 +1,229 @@
+{
+  "requirements": [
+    {
+      "identifier": "test_sera_validado_que_fetch_retorna_requisicao_com_sucesso",
+      "description": "Será validado que fetch retorna requisição com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_sera_validado_fetch_com_tempo_de_resposta_maior_que_3",
+      "description": "Será validado fetch com tempo de resposta maior que 3",
+      "bonus": false
+    },
+    {
+      "identifier": "test_sera_validado_resposta_fetch_com_status_diferente_de_200",
+      "description": "Será validado resposta fetch com status diferente de 200",
+      "bonus": false
+    },
+    {
+      "identifier": "test_validar_tempo_sleep_do_fecth",
+      "description": "Será validado o tempo de sleep do fetch",
+      "bonus": false
+    },
+    {
+      "identifier": "test_validar_scrape_default_retorna_a_primeira_pagina",
+      "description": "Será validado que por default o método scrape irá raspar notícias da primeria página",
+      "bonus": false
+    },
+    {
+      "identifier": "test_validar_scrape_retorna_noticias_de_N_paginas",
+      "description": "Será validado que ao passar o número de página deverá retornar todas as notícias das N páginas",
+      "bonus": false
+    },
+    {
+      "identifier": "test_validar_formato_da_lista",
+      "description": "Será validado o formato da lista está correta",
+      "bonus": false
+    },
+    {
+      "identifier": "test_sera_validado_importar_arquivo_invalido_ira_mostrar_erro",
+      "description": "Será validado que ao importar um arquivo inválido deverá retornar erro",
+      "bonus": false
+    },
+    {
+      "identifier": "test_sera_validado_importar_arquivo_inexistente_ira_mostrar_erro",
+      "description": "Será validado que ao importar um arquivo inexistente deverá retornar erro",
+      "bonus": false
+    },
+    {
+      "identifier": "test_sera_validado_importar_arquivo_com_sucesso",
+      "description": "Será validado que ao importar um arquivo válido deverá retornar importar com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_sera_validado_importar_arquivo_inexistente_com_formato_invalido_ira_mostrar_erro",
+      "description": "Será validado que ao importar um arquivo inexitente com formato inválido irá retornar erro",
+      "bonus": false
+    },
+    {
+      "identifier": "test_sera_validado_exportar_arquivo_invalido_ira_mostrar_erro",
+      "description": "Será validado que ao exportar um arquivo inválido irá mostrar o erro",
+      "bonus": false
+    },
+    {
+      "identifier": "test_sera_validado_exportar_arquivo_com_sucesso",
+      "description": "Será validado que ao exportar um arquivo válido com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_sera_validado_atualizar_arquivo_com_mesmo_nome_com_sucesso",
+      "description": "Será validado que ao exportar um arquivo com mesmo nome irá atualizar com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_noticia_pelo_titulo_com_sucesso",
+      "description": "Será validado que é possível buscar uma notícia pelo título com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_titulo_que_nao_existe_deve_retornar_vazio",
+      "description": "Sera validado que ao buscar por um título que não existe, o retorno deve ser uma lista vazia",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_noticia_pelo_titulo_com_sucesso_com_sentive_case",
+      "description": "Será validado que é possível buscar uma notícia pelo título com case sensitive com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_noticia_pela_data_com_sucesso",
+      "description": "Será validado que é possível buscar uma notícia pela data com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_data_que_nao_existe_deve_retornar_vazio",
+      "description": "Sera validado que ao buscar por uma data que não existe, o retorno deve ser uma lista vazia",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_data_que_com_formato_invalido_deve_retornar_erro",
+      "description": "Sera validado que ao buscar por uma data com formato inválido, deve retornar `Data inválida`",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_noticia_pela_fonte_com_sucesso",
+      "description": "Será validado que é possível buscar uma notícia pela fonte com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_fonte_que_nao_existe_deve_retornar_vazio",
+      "description": "Sera validado que ao buscar por uma fonte que não existe, o retorno deve ser uma lista vazia",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_noticia_pela_fonte_com_sucesso_com_sentive_case",
+      "description": "Será validado que é possível buscar uma notícia pela fonte com case sensitive com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_noticia_pela_categoria_com_sucesso",
+      "description": "Será validado que é possível buscar uma notícia pela categoria com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_categoria_que_nao_existe_deve_retornar_vazio",
+      "description": "Sera validado que ao buscar por uma categoria que não existe, o retorno deve ser uma lista vazia",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_noticia_pela_categoria_com_sucesso_com_sentive_case",
+      "description": "Será validado que é possível buscar uma notícia pela categoria com case sensitive com sucesso",
+      "bonus": false
+    },
+    {
+      "identifier": "test_listar_as_top_cinco_noticias",
+      "description": "Será validado que é possível buscar as cinco top notícias",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_top_noticias_retornar_vazio_caso_nao_exista_noticias",
+      "description": "Será validado que é possível buscar as cinco top notícias e retornar vazio caso não tenha nenhuma notícia",
+      "bonus": false
+    },
+    {
+      "identifier": "test_listar_as_top_cinco_categorias",
+      "description": "Será validado que é possível buscar as cinco top categorias",
+      "bonus": false
+    },
+    {
+      "identifier": "test_buscar_top_categorias_retornar_vazio_caso_nao_exista_noticias",
+      "description": "Será validado que é possível buscar as cinco top categorias e retornar vazio caso não tenha nenhuma notícia",
+      "bonus": false
+    },
+    {
+      "identifier": "test_validar_saida_do_console_collector_menu",
+      "description": "Será validado que é possível listar o menu collector no console",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_sair_collector_menu",
+      "description": "Será validado que é possível sair do menu collector",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_invalida_do_collector_menu",
+      "description": "Será validado que é possível retornar um erro do menu collector quando opção inválida",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_importar_collector_menu",
+      "description": "Será validado que e possível executar a opção importar",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_exportar_collector_menu",
+      "description": "Será validado que e possível executar a opção exportar",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_raspar_collector_menu",
+      "description": "Será validado que e possível executar a opção raspar notícia",
+      "bonus": true
+    },
+    {
+      "identifier": "test_validar_saida_do_console_analyzer_menu",
+      "description": "Será validado que é possível listar o menu analyzer no console",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_sair_do_console_analyzer_menu",
+      "description": "Será validado que é possível sair do menu analyzer",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_invalida_do_analyzer_menu",
+      "description": "Será validado que é possível retornar um erro do menu analyzer quando opção inválida",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_titulo_do_console_analyzer_menu",
+      "description": "Será validado que é possível executar a opção buscar por título",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_data_do_console_analyzer_menu",
+      "description": "Será validado que é possível executar a opção buscar por data",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_fonte_do_console_analyzer_menu",
+      "description": "Será validado que é possível executar a opção buscar por fonte",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_categoria_do_console_analyzer_menu",
+      "description": "Será validado que é possível executar a opção buscar por categoria",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_top5_noticias_do_console_analyzer_menu",
+      "description": "Será validado que é possível executar a opção buscar top 5 noticías",
+      "bonus": true
+    },
+    {
+      "identifier": "test_executar_opcao_top5_categorias_do_console_analyzer_menu",
+      "description": "Será validado que é possível executar a opção buscar top 5 categorias",
+      "bonus": true
+    }
+  ]
+}
