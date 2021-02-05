@@ -13,8 +13,6 @@ def top_5_news():
     return top_rates
 
 
-
-
 def top_5_categories():
     sorted_rates = db.news.aggregate(
         [

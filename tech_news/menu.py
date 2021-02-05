@@ -23,10 +23,10 @@ def show_menu():
 
 def show_submenu(option):
     submenu_options = [
-        'Digite o nome do arquivo CSV a ser importado:',
-        'Digite o nome do arquivo CSV a ser exportado:',
-        'Digite a quantidade de páginas a serem raspadas:'
-        ]
+        "Digite o nome do arquivo CSV a ser importado:",
+        "Digite o nome do arquivo CSV a ser exportado:",
+        "Digite a quantidade de páginas a serem raspadas:",
+    ]
     input_answer = input(submenu_options[option])
     return input_answer
 
@@ -37,7 +37,8 @@ def collector_menu():
         lambda csv_path: csv_importer(csv_path),
         lambda csv_path: csv_exporter(csv_path),
         lambda number_of_pages: (
-            scrape(fetcher=fetch_content, pages=int(number_of_pages))),
+            scrape(fetcher=fetch_content, pages=int(number_of_pages))
+        ),
     ]
     answer = show_menu()
     if answer:
@@ -67,12 +68,12 @@ def show_analyzer_menu():
 
 def analyzer_menu():
     seconde_question = [
-       "Digite o título:",
-       "Digite a data no formato aaaa-mm-dd:",
-       "Digite a fonte:",
-       "Digite a categoria:",
-       top_5_news(),
-       top_5_categories(),
+        "Digite o título:",
+        "Digite a data no formato aaaa-mm-dd:",
+        "Digite a fonte:",
+        "Digite a categoria:",
+        top_5_news(),
+        top_5_categories(),
     ]
 
     functions = [
@@ -88,7 +89,7 @@ def analyzer_menu():
         option = int(answer) - 1
 
     if answer in range(1, 7):
-        print('seocnd' + str(option))
+        print("seocnd" + str(option))
         print(seconde_question[option])
         if answer in range(1, 5):
             query_param = input()

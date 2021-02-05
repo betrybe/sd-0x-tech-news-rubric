@@ -5,8 +5,9 @@ from tech_news.database import db
 
 def search_by_title(title):
     title_to_search = re.compile(title, re.IGNORECASE)
-    query = (db.news.find({"title": title_to_search},
-                          {"title": 1, "url": 1, "_id": 0}))
+    query = db.news.find(
+        {"title": title_to_search}, {"title": 1, "url": 1, "_id": 0}
+    )
     result = [(result["title"], result["url"]) for result in query]
     return list(result)
 
