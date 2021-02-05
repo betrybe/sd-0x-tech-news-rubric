@@ -17,6 +17,7 @@ jobs:
   evaluator_job:
     name: Evaluator Job
     runs-on: ubuntu-18.04
+    needs: [flake8]
     services:
       mongodb:
         image: mongo
