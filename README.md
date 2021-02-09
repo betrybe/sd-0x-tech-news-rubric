@@ -303,7 +303,7 @@ python3 -m pytest tests/nomedoarquivo.py
 
 ### Pacote `tech_news/collector`
 
-#### 1- Deve haver uma função chamada `fetch_content` no arquivo `tech_news/collector/scrapper.py` capaz de realizar uma requisição HTTP e retornar o conteúdo como resposta.
+#### 1- Crie uma função chamada `fetch_content` no arquivo `tech_news/collector/scrapper.py` capaz de realizar uma requisição HTTP e retornar o conteúdo como resposta.
 
 - Caso a resposta tenha o código de status diferente de `200`, deve-se retornar uma `str` vazia;
 
@@ -325,7 +325,7 @@ python3 -m pytest tests/nomedoarquivo.py
 
 - Será validado o tempo de sleep do fetch
 
-#### 2 - Deve haver uma função `scrape` dentro do módulo `tech_news/collector/scrapper.py` capaz de raspar as últimas notícias das N primeiras páginas.
+#### 2 - Crie uma função `scrape` dentro do módulo `tech_news/collector/scrapper.py` capaz de raspar as últimas notícias das N primeiras páginas.
 
 Utilizar os seguintes atributos:
 
@@ -408,7 +408,7 @@ Repare que no exemplo dentro da tag _p_ encontram-se duas outras tags. Esse é u
 
 - Será validado o formato da lista está correta
 
-#### 3 - Deve haver uma função `csv_importer` dentro do módulo `tech_news/collector/importer.py` capaz de importar notícias a partir de um arquivo CSV, utilizando ";" como separador.
+#### 3 - Crie uma função `csv_importer` dentro do módulo `tech_news/collector/importer.py` capaz de importar notícias a partir de um arquivo CSV, utilizando ";" como separador.
 
 - Caso a extensão do arquivo seja diferente de `.csv`, uma exceção deve ser lançada;
 
@@ -453,7 +453,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/collector/importer.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `csv_importer("testdata.csv")`.
 
-#### 4 - Deve haver uma função `csv_exporter` dentro do módulo `tech_news/collector/exporter.py` capaz de exportar todas as notícias do banco de dados para um arquivo CSV, utilizando ";" como separador.
+#### 4 - Crie uma função `csv_exporter` dentro do módulo `tech_news/collector/exporter.py` capaz de exportar todas as notícias do banco de dados para um arquivo CSV, utilizando ";" como separador.
 
 - O arquivo exportado deve possuir o formato CSV. Caso contrário, uma exceção deve ser lançada;
 
@@ -477,7 +477,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ### Pacote `tech_news/analyzer`
 
-#### 5 - Deve haver uma função `search_by_title` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por título (parcial ou completo) e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
+#### 5 - Crie uma função `search_by_title` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por título (parcial ou completo) e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
 
 - A busca deve ser _case insensitive_ e deve retornar uma lista de lista de tuplas `[("title", "url")]`;
 
@@ -495,7 +495,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 - Será validado que é possível buscar uma notícia pelo título com case sensitive com sucesso
 
-#### 6 - Deve haver uma função `search_by_date` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por data e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
+#### 6 - Crie uma função `search_by_date` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por data e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
 
 - A busca deve retornar uma lista de tuplas `[("title", "url")]`;
 
@@ -515,7 +515,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 - Sera validado que ao buscar por uma data com formato inválido, deve retornar `Data inválida`
 
-#### 7 - Deve haver uma função `search_by_source` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por fonte (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
+#### 7 - Crie uma função `search_by_source` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por fonte (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
 
 - A busca deve ser _case insensitive_ e deve retornar uma lista de tuplas `[("title", "url")]`;
 
@@ -533,7 +533,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 - Será validado que é possível buscar uma notícia pela fonte com case sensitive com sucesso
 
-#### 8 - Deve haver uma função `search_by_category` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por categoria (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
+#### 8 - Crie uma função `search_by_category` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por categoria (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
 
 - A busca deve ser _case insensitive_ e deve retornar uma lista de tuplas `[("title", "url")]`;
 
@@ -551,7 +551,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 - Será validado que é possível buscar uma notícia pela categoria com case sensitive com sucesso
 
-#### 9 - Deve haver uma função `top_5_news` dentro do módulo `tech_news/analyzer/ratings.py`, que liste as cinco notícias com a maior soma de compartilhamentos e comentários do banco de dados. As notícias devem ser ordenadas pela popularidade. Em caso de empate, o desempate deve ser por ordem alfabética de título.
+#### 9 - Crie uma função `top_5_news` dentro do módulo `tech_news/analyzer/ratings.py`, que liste as cinco notícias com a maior soma de compartilhamentos e comentários do banco de dados. As notícias devem ser ordenadas pela popularidade. Em caso de empate, o desempate deve ser por ordem alfabética de título.
 
 - As top 5 notícias da análise devem ser retornadas em uma lista de tuplas `[("title", "url")]`;
 
@@ -569,7 +569,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 - Será validado que é possível buscar as cinco top notícias e retornar vazio caso não tenha nenhuma notícia
 
-#### 10 - Deve haver uma função `top_5_categories` dentro do módulo `tech_news/analyzer/ratings.py`, que liste as cinco categorias com maior ocorrência no banco de dados. As categorias devem ser ordenadas por ordem alfabética.
+#### 10 - Crie uma função `top_5_categories` dentro do módulo `tech_news/analyzer/ratings.py`, que liste as cinco categorias com maior ocorrência no banco de dados. As categorias devem ser ordenadas por ordem alfabética.
 
 - As top 5 categorias da análise devem ser retornadas em uma lista no formato `["category"]`;
 
@@ -626,7 +626,7 @@ Selecione uma das opções a seguir:
 
 - Será validado que é possível retornar um erro do menu collector quando opção inválida
 
-#### 12 - Ao selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada.
+#### 12 - Selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada.
 
 - Caso a opção `1` seja selecionada, a importação deve ser feita utilizando a função `csv_importer`;
 
@@ -686,7 +686,7 @@ Selecione uma das opções a seguir:
 
 - Será validado que é possível retornar um erro do menu analyzer quando opção inválida
 
-#### 14 - Ao selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada e seu resultado deve ser exibido.
+#### 14 - Selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada e seu resultado deve ser exibido.
 
 - Caso a opção `1` seja selecionada, a importação deve ser feita utilizando a função `search_by_title` e seu resultado deve ser impresso em tela;
 
