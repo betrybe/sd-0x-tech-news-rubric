@@ -1,3 +1,8 @@
+### Termos e acordos
+
+Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do
+Manual da Pessoa Estudante da Trybe.
+
 # Boas vindas ao repositório do projeto de Tech News!
 
 Você já usa o _GitHub_ diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
@@ -6,60 +11,46 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 ---
 
-## Instruções para entregar seu projeto:
+ Sumário
 
-### ANTES DE COMEÇAR A DESENVOLVER:
+- [Habilidades](#habilidades)
+- [Entregáveis](#entregáveis)
+  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
+  - [Desenvolvimento](#desenvolvimento)
+  - [Data de Entrega](#data-de-entrega)
+- [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
+  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
+  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
+- [Como desenvolver](#como-desenvolver)
+  - [Linter](#linter)
+  - [Dica: desativando testes](#dica-desativando-testes)
+  - [Dica: watch mode](#dica-watch-mode)
+- [Requisitos do projeto](#requisitos-do-projeto)
+    - [1 - Crie um componente `<Header />`](#1---crie-um-componente-header-)
+    - [2 - Renderize um texto no `<Header />`](#2---renderize-um-texto-no-header-)
+    - [3 - Crie um componente `<MovieList />`](#3---crie-um-componente-movielist-)
+    - [4 - Renderize componentes `<MovieCard />` dentro de `<MovieList />`](#4---renderize-componentes-moviecard--dentro-de-movielist-)
+    - [5 - Passe uma key para cada `<MovieCard />` renderizado](#5---passe-uma-key-para-cada-moviecard--renderizado)
+    - [6 - Crie um componente `<MovieCard />`](#6---crie-um-componente-moviecard-)
+    - [7 - Renderize a imagem do filme dentro de uma tag `img`](#7---renderize-a-imagem-do-filme-dentro-de-uma-tag-img)
+    - [8 - Renderize o título do filme dentro de uma tag `h4`](#8---renderize-o-título-do-filme-dentro-de-uma-tag-h4)
+    - [9 - Renderize o subtítulo do filme dentro de uma tag `h5`](#9---renderize-o-subtítulo-do-filme-dentro-de-uma-tag-h5)
+    - [10 - Renderize a sinopse do filme dentro de uma tag `p`](#10---renderize-a-sinopse-do-filme-dentro-de-uma-tag-p)
+    - [11 - Crie um componente `<Rating />`](#11---crie-um-componente-rating-)
+    - [12 - Renderize a nota de um filme dentro de `Rating`](#12---renderize-a-nota-de-um-filme-dentro-de-rating)
+    - [13 - Renderize o componente `<Rating />` dentro de `<MovieCard />`](#13---renderize-o-componente-rating--dentro-de-moviecard-)
+    - [14 - Passe como prop para o componente `<Rating />` o atributo `rating`](#14---passe-como-prop-para-o-componente-rating--o-atributo-rating)
+    - [15 - Crie um componente `<App />`](#15---crie-um-componente-app-)
+    - [16 - Renderize `<MovieList />` dentro do componente `<App />`](#16---renderize-movielist--dentro-do-componente-app-)
+    - [17 - Adicione PropTypes a todos os componentes](#17---adicione-proptypes-a-todos-os-componentes)
+- [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
+- [Revisando um pull request](#revisando-um-pull-request)
+- [Avisos Finais](#avisos-finais)
 
-1. Clone o repositório
+---
 
-- `git clone git@github.com:tryber/sd-0x-tech-news-rubric.git`.
-- Entre na pasta do repositório que você acabou de clonar:
-  - `sd-0x-tech-news-rubric`
+# Habilidades
 
-2. Crie o ambiente virtual para o projeto
-
-- `python3 -m venv .venv && source .venv/bin/activate`
-
-3. Instale as dependências
-
-- `python3 -m pip install -r dev-requirements.txt`
-
-4. Crie uma branch a partir da branch `main`
-
-- Verifique que você está na branch `main`
-  - Exemplo: `git branch`
-- Se não estiver, mude para a branch `main`
-  - Exemplo: `git checkout main`
-- Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
-  - Você deve criar uma branch no seguinte formato: `nome-github-nome-do-projeto`
-  - Exemplo: `git checkout -b exemplo-tech-news`
-
-5. Adicione as mudanças ao _stage_ do Git e faça um `commit`
-
-- Verifique que as mudanças ainda não estão no _stage_
-  - Exemplo: `git status` (deve aparecer listada a pasta _exemplo_ em vermelho)
-- Adicione o novo arquivo ao _stage_ do Git
-  - Exemplo:
-    - `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-    - `git status` (deve aparecer listado o arquivo _exemplo/README.md_ em verde)
-- Faça o `commit` inicial
-  - Exemplo:
-    - `git commit -m 'iniciando o projeto tech-news'` (fazendo o primeiro commit)
-    - `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
-
-6. Adicione a sua branch com o novo `commit` ao repositório remoto
-
-- Usando o exemplo anterior: `git push -u origin exemplo-project-name`
-
-7. Crie um novo `Pull Request` _(PR)_
-
-- Vá até a página de _Pull Requests_ do [repositório no _GitHub_](https://github.com/tryber/sd-0x-tech-news-rubric/pulls)
-- Clique no botão verde _"New pull request"_
-- Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-- Clique no botão verde _"Create pull request"_
-- Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-- **Não se preocupe em preencher mais nada por enquanto!**
-- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-tech-news-rubric/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
 
@@ -176,6 +167,126 @@ Para a realização deste projeto, utilizaremos um banco de dados chamado `tech_
 
 ---
 
+## Data de Entrega
+
+  - Serão `X` dias de projeto.
+  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
+
+---
+
+## Instruções para entregar seu projeto:
+
+### ANTES DE COMEÇAR A DESENVOLVER:
+
+1. Clone o repositório
+
+- `git clone https://github.com/tryber/sd-0x-tech-news.git`.
+- Entre na pasta do repositório que você acabou de clonar:
+  - `sd-0x-tech-news`
+
+2. Crie o ambiente virtual para o projeto
+
+- `python3 -m venv .venv && source .venv/bin/activate`
+
+3. Instale as dependências
+
+- `python3 -m pip install -r dev-requirements.txt`
+
+4. Crie uma branch a partir da branch `main`
+
+- Verifique que você está na branch `main`
+  - Exemplo: `git branch`
+- Se não estiver, mude para a branch `main`
+  - Exemplo: `git checkout main`
+- Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
+  - Você deve criar uma branch no seguinte formato: `nome-github-nome-do-projeto`
+  - Exemplo: `git checkout -b exemplo-tech-news`
+
+5. Adicione as mudanças ao _stage_ do Git e faça um `commit`
+
+- Verifique que as mudanças ainda não estão no _stage_
+  - Exemplo: `git status` (deve aparecer listada a pasta _exemplo_ em vermelho)
+- Adicione o novo arquivo ao _stage_ do Git
+  - Exemplo:
+    - `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
+    - `git status` (deve aparecer listado o arquivo _exemplo/README.md_ em verde)
+- Faça o `commit` inicial
+  - Exemplo:
+    - `git commit -m 'iniciando o projeto tech-news'` (fazendo o primeiro commit)
+    - `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
+
+6. Adicione a sua branch com o novo `commit` ao repositório remoto
+
+- Usando o exemplo anterior: `git push -u origin exemplo-project-name`
+
+7. Crie um novo `Pull Request` _(PR)_
+
+- Vá até a página de _Pull Requests_ do [repositório no _GitHub_](https://github.com/tryber/sd-0x-tech-news/pulls)
+- Clique no botão verde _"New pull request"_
+- Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
+- Clique no botão verde _"Create pull request"_
+- Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
+- **Não se preocupe em preencher mais nada por enquanto!**
+- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-tech-news/pulls) e confira que o seu _Pull Request_ está criado
+
+---
+
+## Durante o desenvolvimento
+
+* ⚠ **PULL REQUESTS COM ISSUES NO LINTER NÃO SERÃO AVALIADAS, ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
+
+* Faça `commits` das alterações que você fizer no código regularmente
+
+* Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
+
+* Os comandos que você utilizará com mais frequência são:
+  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
+  2. `git add` _(para adicionar arquivos ao stage do Git)_
+  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
+  4. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
+  5. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
+
+---
+
+## Linter
+
+Para garantir a qualidade do código, vamos utilizar neste projeto o linter `Flake8`.
+Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível
+e de fácil manutenção! Para rodá-lo localmente no projeto, execute o comandos abaixo:
+
+  ```bash
+python3 -m flake8
+```
+
+⚠️ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS.
+ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠️
+
+---
+
+## Testes
+
+Com as dependências já instaladas basta executar o comando:
+
+```bash
+python3 -m pytest
+```
+
+Com esse comando irá executar todos os testes do projeto.
+
+Caso o teste falhe e você queira ter um print melhor do erro basta executar o seguinte comando:
+
+```bash
+python3 -m pytest -s -vv
+```
+
+Caso precise executar apenas um arquivo de testes basta executar o comando:
+
+```bash
+python3 -m pytest tests/nomedoarquivo.py
+```
+
+---
+
 ## Requisitos obrigatórios:
 
 ### Pacote `tech_news/collector`
@@ -192,7 +303,7 @@ Para a realização deste projeto, utilizaremos um banco de dados chamado `tech_
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/collector/scrapper.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `fetch_content("https://app.betrybe.com/")`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que fetch retorna requisição com sucesso
 
@@ -277,7 +388,7 @@ Repare que no exemplo dentro da tag _p_ encontram-se duas outras tags. Esse é u
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/collector/scrapper.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `scrape(fetcher=fetch_content, pages=2)`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que por default o método scrape irá raspar notícias da primeria página
 
@@ -315,7 +426,8 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
     ]
   }]
 ```
-##### As seguintes verificações serão feitas:
+
+**O que será verificado:**
 
 - Será validado que ao importar um arquivo inválido deverá retornar erro
 
@@ -331,8 +443,6 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 #### 4 - Deve haver uma função `csv_exporter` dentro do módulo `tech_news/collector/exporter.py` capaz de exportar todas as notícias do banco de dados para um arquivo CSV, utilizando ";" como separador.
 
-##### As seguintes verificações serão feitas:
-
 - O arquivo exportado deve possuir o formato CSV. Caso contrário, uma exceção deve ser lançada;
 
 - Caso já exista um arquivo com o mesmo nome, ele deve ser substituído;
@@ -344,6 +454,8 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 📌 Um exemplo de arquivo `CSV` pode ser encontrado na seção de [dados](#dados).
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/collector/exporter.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `csv_exporter("output.csv")`.
+
+**O que será verificado:**
 
 - Será validado que ao exportar um arquivo inválido irá mostrar o erro
 
@@ -363,7 +475,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/search_engine.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `search_by_title("Musk")`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar uma notícia pelo título com sucesso
 
@@ -383,7 +495,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/search_engine.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `search_by_date("2020-11-11")`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar uma notícia pela data com sucesso
 
@@ -401,7 +513,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/search_engine.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `search_by_source("Venture Beat")`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar uma notícia pela fonte com sucesso
 
@@ -419,7 +531,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/search_engine.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `search_by_category("Tesla")`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar uma notícia pela categoria com sucesso
 
@@ -439,15 +551,13 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/ratings.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `top_5_news()`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar as cinco top notícias
 
 - Será validado que é possível buscar as cinco top notícias e retornar vazio caso não tenha nenhuma notícia
 
 #### 10 - Deve haver uma função `top_5_categories` dentro do módulo `tech_news/analyzer/ratings.py`, que liste as cinco categorias com maior ocorrência no banco de dados. As categorias devem ser ordenadas por ordem alfabética.
-
-##### As seguintes verificações serão feitas:
 
 - As top 5 categorias da análise devem ser retornadas em uma lista no formato `["category"]`;
 
@@ -459,7 +569,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/ratings.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `top_5_categories()`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar as cinco top categorias
 
@@ -496,7 +606,7 @@ Selecione uma das opções a seguir:
 
 ✍️  Teste manual: dentro de um ambiente virtual onde seu projeto foi configurado, digite o comando `tech-news-collector`, o menu deve ser exibido. Isto acontece pois durante a configuração inicial do projeto já configuramos para que a função seja corretamente chamada quando este comando seja invocado.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível listar o menu collector no console
 
@@ -518,7 +628,7 @@ Selecione uma das opções a seguir:
 
 ✍️  Teste manual: dentro de um ambiente virtual onde seu projeto foi configurado, digite o comando `tech-news-collector`, assim você conseguirá interagir com o menu.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível executar a opção importar
 
@@ -556,7 +666,7 @@ Selecione uma das opções a seguir:
 
 ✍️  Teste manual: dentro de um ambiente virtual onde seu projeto foi configurado, digite o comando `tech-news-analyzer`, o menu deve ser exibido. Isto acontece pois durante a configuração inicial do projeto já configuramos para que a função seja corretamente chamada quando este comando seja invocado.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível listar o menu analyzer no console
 
@@ -584,7 +694,7 @@ Selecione uma das opções a seguir:
 
 ✍️  Teste manual: dentro de um ambiente virtual onde seu projeto foi configurado, digite o comando `tech-news-analyzer`, assim você conseguirá interagir com o menu.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível executar a opção buscar por título
 
@@ -600,39 +710,35 @@ Selecione uma das opções a seguir:
 
 ---
 
-### DURANTE O DESENVOLVIMENTO
+## Depois de terminar o desenvolvimento
 
-- Faça `commits` das alterações que você fizer no código regularmente
+Para **"entregar"** seu projeto, siga os passos a seguir:
 
-- Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
+* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
+  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
+  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
+  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`
 
-- Os comandos que você utilizará com mais frequência são:
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
-  2. `git add` _(para adicionar arquivos ao stage do Git)_
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
+Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
----
-
-### DEPOIS DE TERMINAR O DESENVOLVIMENTO (OPCIONAL)
-
-Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus colegas, faça o seguinte:
-
-- Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
-
-  - No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
-
-  - No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
-
-  - No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
-
-Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
+⚠ Lembre-se que garantir que todas as _issues_ comentadas pelo **Lint** estão resolvidas! ⚠
 
 ---
 
-### REVISANDO UM PULL REQUEST
+### Revisando um pull request
 
-Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
+À medida que você e as outras pessoas que estudam na Trybe forem entregando os projetos, vocês receberão um alerta via Slack para também fazer a revisão dos Pull Requests dos seus colegas. Fiquem atentos às mensagens do "Pull Reminders" no Slack!
 
-#VQV 🚀
+Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você.
+
+---
+
+# Avisos Finais
+
+Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
+
+Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://be-trybe.typeform.com/to/ZTeR4IbH)
+
+O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
+
+---
