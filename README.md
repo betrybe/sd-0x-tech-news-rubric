@@ -26,23 +26,24 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [Dica: desativando testes](#dica-desativando-testes)
   - [Dica: watch mode](#dica-watch-mode)
 - [Requisitos do projeto](#requisitos-do-projeto)
-    - [1 - Crie um componente `<Header />`](#1---crie-um-componente-header-)
-    - [2 - Renderize um texto no `<Header />`](#2---renderize-um-texto-no-header-)
-    - [3 - Crie um componente `<MovieList />`](#3---crie-um-componente-movielist-)
-    - [4 - Renderize componentes `<MovieCard />` dentro de `<MovieList />`](#4---renderize-componentes-moviecard--dentro-de-movielist-)
-    - [5 - Passe uma key para cada `<MovieCard />` renderizado](#5---passe-uma-key-para-cada-moviecard--renderizado)
-    - [6 - Crie um componente `<MovieCard />`](#6---crie-um-componente-moviecard-)
-    - [7 - Renderize a imagem do filme dentro de uma tag `img`](#7---renderize-a-imagem-do-filme-dentro-de-uma-tag-img)
-    - [8 - Renderize o título do filme dentro de uma tag `h4`](#8---renderize-o-título-do-filme-dentro-de-uma-tag-h4)
-    - [9 - Renderize o subtítulo do filme dentro de uma tag `h5`](#9---renderize-o-subtítulo-do-filme-dentro-de-uma-tag-h5)
-    - [10 - Renderize a sinopse do filme dentro de uma tag `p`](#10---renderize-a-sinopse-do-filme-dentro-de-uma-tag-p)
-    - [11 - Crie um componente `<Rating />`](#11---crie-um-componente-rating-)
-    - [12 - Renderize a nota de um filme dentro de `Rating`](#12---renderize-a-nota-de-um-filme-dentro-de-rating)
-    - [13 - Renderize o componente `<Rating />` dentro de `<MovieCard />`](#13---renderize-o-componente-rating--dentro-de-moviecard-)
-    - [14 - Passe como prop para o componente `<Rating />` o atributo `rating`](#14---passe-como-prop-para-o-componente-rating--o-atributo-rating)
-    - [15 - Crie um componente `<App />`](#15---crie-um-componente-app-)
-    - [16 - Renderize `<MovieList />` dentro do componente `<App />`](#16---renderize-movielist--dentro-do-componente-app-)
-    - [17 - Adicione PropTypes a todos os componentes](#17---adicione-proptypes-a-todos-os-componentes)
+
+    `Requisitos obrigatórios:`
+    - [1 - Deve haver uma função chamada fetch_content no arquivo tech_news/collector/scrapper.py capaz de realizar uma requisição HTTP e retornar o conteúdo como resposta.](#1--deve-haver-uma-função-chamada-fetch_content-no-arquivo-tech_newscollectorscrapperpy-capaz-de-realizar-uma-requisição-http-e-retornar-o-conteúdo-como-resposta)
+    - [2 - Deve haver uma função scrape dentro do módulo tech_news/collector/scrapper.py capaz de raspar as últimas notícias das N primeiras páginas.](#2---deve-haver-uma-função-scrape-dentro-do-módulo-tech_newscollectorscrapperpy-capaz-de-raspar-as-últimas-notícias-das-n-primeiras-páginas)
+    - [3 - Deve haver uma função csv_importer dentro do módulo tech_news/collector/importer.py capaz de importar notícias a partir de um arquivo CSV, utilizando ";" como separador.](#3---deve-haver-uma-função-csv_importer-dentro-do-módulo-tech_newscollectorimporterpy-capaz-de-importar-notícias-a-partir-de-um-arquivo-csv-utilizando--como-separador)
+    - [4 - Deve haver uma função csv_exporter dentro do módulo tech_news/collector/exporter.py capaz de exportar todas as notícias do banco de dados para um arquivo CSV, utilizando ";" como separador.](#4---deve-haver-uma-função-csv_exporter-dentro-do-módulo-tech_newscollectorexporterpy-capaz-de-exportar-todas-as-notícias-do-banco-de-dados-para-um-arquivo-csv-utilizando--como-separador)
+    - [5 - Deve haver uma função search_by_title dentro do módulo tech_news/analyzer/search_engine.py, que busque as notícias do banco de dados por título (parcial ou completo) e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.](#5---deve-haver-uma-função-search_by_title-dentro-do-módulo-tech_newsanalyzersearch_enginepy-que-busque-as-notícias-do-banco-de-dados-por-título-parcial-ou-completo-e-retorne-uma-lista-de-notícias-encontradas-para-cada-notícia-encontrada-deve-se-listar-seu-título-e-link)
+    - [6 - Deve haver uma função search_by_date dentro do módulo tech_news/analyzer/search_engine.py, que busque as notícias do banco de dados por data e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.](#6---deve-haver-uma-função-search_by_date-dentro-do-módulo-tech_newsanalyzersearch_enginepy-que-busque-as-notícias-do-banco-de-dados-por-data-e-retorne-uma-lista-de-notícias-encontradas-para-cada-notícia-encontrada-deve-se-listar-seu-título-e-link)
+    - [7 - Deve haver uma função search_by_source dentro do módulo tech_news/analyzer/search_engine.py, que busque as notícias do banco de dados por fonte (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.](#7---deve-haver-uma-função-search_by_source-dentro-do-módulo-tech_newsanalyzersearch_enginepy-que-busque-as-notícias-do-banco-de-dados-por-fonte-apenas-uma-por-vez-e-com-nome-completo-e-exiba-uma-lista-de-notícias-encontradas-para-cada-notícia-encontrada-deve-se-listar-seu-título-e-link)
+    - [8 - Deve haver uma função search_by_category dentro do módulo tech_news/analyzer/search_engine.py, que busque as notícias do banco de dados por categoria (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.](#8---deve-haver-uma-função-search_by_category-dentro-do-módulo-tech_newsanalyzersearch_enginepy-que-busque-as-notícias-do-banco-de-dados-por-categoria-apenas-uma-por-vez-e-com-nome-completo-e-exiba-uma-lista-de-notícias-encontradas-para-cada-notícia-encontrada-deve-se-listar-seu-título-e-link)
+    - [9 - Deve haver uma função top_5_news dentro do módulo tech_news/analyzer/ratings.py, que liste as cinco notícias com a maior soma de compartilhamentos e comentários do banco de dados. As notícias devem ser ordenadas pela popularidade. Em caso de empate, o desempate deve ser por ordem alfabética de título.](#9---deve-haver-uma-função-top_5_news-dentro-do-módulo-tech_newsanalyzerratingspy-que-liste-as-cinco-notícias-com-a-maior-soma-de-compartilhamentos-e-comentários-do-banco-de-dados-as-notícias-devem-ser-ordenadas-pela-popularidade-em-caso-de-empate-o-desempate-deve-ser-por-ordem-alfabética-de-título)
+    - [10 - Deve haver uma função top_5_categories dentro do módulo tech_news/analyzer/ratings.py, que liste as cinco categorias com maior ocorrência no banco de dados. As categorias devem ser ordenadas por ordem alfabética.](#10---deve-haver-uma-função-top_5_categories-dentro-do-módulo-tech_newsanalyzerratingspy-que-liste-as-cinco-categorias-com-maior-ocorrência-no-banco-de-dados-as-categorias-devem-ser-ordenadas-por-ordem-alfabética)
+
+    `Requisitos bônus:`
+    - [11 - Preencha a função collector_menu que se encontra no módulo tech_news/menu.py como um menu de opções, em que cada opção pede as informações necessárias para disparar uma ação. O texto exibido pelo menu deve ser exatamente:](#11---preencha-a-função-collector_menu--que-se-encontra-no-módulo-tech_newsmenupy-como-um-menu-de-opções-em-que-cada-opção-pede-as-informações-necessárias-para-disparar-uma-ação-o-texto-exibido-pelo-menu-deve-ser-exatamente)
+    - [12 - Ao selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada.](#12---ao-selecionar-uma-opção-do-menu-de-opções-e-inserir-as-informações-necessárias-a-ação-adequada-deve-ser-disparada)
+    - [13 - Preencha a função analyzer_menu que se encontra no módulo tech_news/menu.py como um menu de opções, em que cada opção pede as informações necessárias para disparar uma ação. O texto exibido pelo menu deve ser exatamente:](#13---preencha-a-função-analyzer_menu--que-se-encontra-no-módulo-tech_newsmenupy-como-um-menu-de-opções-em-que-cada-opção-pede-as-informações-necessárias-para-disparar-uma-ação-o-texto-exibido-pelo-menu-deve-ser-exatamente)
+    - [14 - Ao selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada e seu resultado deve ser exibido.](#14---ao-selecionar-uma-opção-do-menu-de-opções-e-inserir-as-informações-necessárias-a-ação-adequada-deve-ser-disparada-e-seu-resultado-deve-ser-exibido)
 - [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
 - [Revisando um pull request](#revisando-um-pull-request)
 - [Avisos Finais](#avisos-finais)
@@ -51,6 +52,17 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 # Habilidades
 
+- Utilizar o terminal interativo do Python.
+
+- Escrever seus próprios módulos e como importá-los em outros códigos.
+
+- Manipular arquivos CSV, JSON.
+
+- Analisar conteúdos HTML afim de extrair dados;
+
+- Aplicar técnicas de raspagem para evitar problemas como bloqueio de acesso;
+
+- Armazenar os dados obtidos em um banco de dados.
 
 ---
 
