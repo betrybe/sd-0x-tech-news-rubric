@@ -3,22 +3,6 @@ from time import sleep
 from parsel import Selector
 
 
-"""
-Deve ser capaz de realizar uma requisição HTTP e retornar o conteúdo como
-resposta.
-- Caso a resposta tenha o código de status diferente de 200, deve-se
-retornar uma str vazia;
-
-- O tempo máximo de resposta do servidor deve ser configurado como
-parâmetro e por padrão será 3 segundos;
-
-- Para evitar um problema de Rate Limit faça um sleep com tempo obtido por
-parâmetro, mas que por padrão seja 0.5 segundos;
-
-- Caso a requisição seja bem sucedida retorne seu conteúdo de texto;
-"""
-
-
 def fetch_content(url, timeout=3, delay=0.5):
     while True:
         try:
