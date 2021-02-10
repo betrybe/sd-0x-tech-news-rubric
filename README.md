@@ -303,7 +303,7 @@ python3 -m pytest tests/nomedoarquivo.py
 
 ### Pacote `tech_news/collector`
 
-#### 1- Crie uma função chamada `fetch_content` no arquivo `tech_news/collector/scrapper.py` capaz de realizar uma requisição HTTP e retornar o conteúdo como resposta.
+#### 1 - Crie uma função chamada `fetch_content` no arquivo `tech_news/collector/scrapper.py` capaz de realizar uma requisição HTTP e retornar o conteúdo como resposta.
 
 - Caso a resposta tenha o código de status diferente de `200`, deve-se retornar uma `str` vazia;
 
@@ -626,7 +626,7 @@ Selecione uma das opções a seguir:
 
 - Será validado que é possível retornar um erro do menu collector quando opção inválida
 
-#### 12 - Selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada.
+#### 12 - Selecione uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada.
 
 - Caso a opção `1` seja selecionada, a importação deve ser feita utilizando a função `csv_importer`;
 
@@ -686,7 +686,7 @@ Selecione uma das opções a seguir:
 
 - Será validado que é possível retornar um erro do menu analyzer quando opção inválida
 
-#### 14 - Selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada e seu resultado deve ser exibido.
+#### 14 - Selecione uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada e seu resultado deve ser exibido.
 
 - Caso a opção `1` seja selecionada, a importação deve ser feita utilizando a função `search_by_title` e seu resultado deve ser impresso em tela;
 
