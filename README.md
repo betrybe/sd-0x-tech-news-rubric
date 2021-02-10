@@ -1,3 +1,8 @@
+### Termos e acordos
+
+Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do
+Manual da Pessoa Estudante da Trybe.
+
 # Boas vindas ao repositório do projeto de Tech News!
 
 Você já usa o _GitHub_ diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
@@ -6,60 +11,59 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 ---
 
-## Instruções para entregar seu projeto:
+ Sumário
 
-### ANTES DE COMEÇAR A DESENVOLVER:
+- [Habilidades](#habilidades)
+- [Entregáveis](#entregáveis)
+  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
+  - [Desenvolvimento](#desenvolvimento)
+  - [Data de Entrega](#data-de-entrega)
+- [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
+  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
+  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
+- [Como desenvolver](#como-desenvolver)
+  - [Linter](#linter)
+  - [Dica: desativando testes](#dica-desativando-testes)
+  - [Dica: watch mode](#dica-watch-mode)
+- [Requisitos do projeto](#requisitos-do-projeto)
 
-1. Clone o repositório
+    `Requisitos obrigatórios:`
+    - [1 - Crie uma função chamada fetch_content no arquivo tech_news/collector/scrapper.py capaz de realizar uma requisição HTTP e retornar o conteúdo como resposta.](#1---crie-uma-fun%C3%A7%C3%A3o-chamada-fetch_content-no-arquivo-tech_newscollectorscrapperpy-capaz-de-realizar-uma-requisi%C3%A7%C3%A3o-http-e-retornar-o-conte%C3%BAdo-como-resposta)
+    - [2 - Crie uma função scrape dentro do módulo tech_news/collector/scrapper.py capaz de raspar as últimas notícias das N primeiras páginas.](#2---crie-uma-fun%C3%A7%C3%A3o-scrape-dentro-do-m%C3%B3dulo-tech_newscollectorscrapperpy-capaz-de-raspar-as-%C3%BAltimas-not%C3%ADcias-das-n-primeiras-p%C3%A1ginas)
+    - [3 - Crie uma função csv_importer dentro do módulo tech_news/collector/importer.py capaz de importar notícias a partir de um arquivo CSV, utilizando ";" como separador.](#3---crie-uma-fun%C3%A7%C3%A3o-csv_importer-dentro-do-m%C3%B3dulo-tech_newscollectorimporterpy-capaz-de-importar-not%C3%ADcias-a-partir-de-um-arquivo-csv-utilizando--como-separador)
+    - [4 - Crie uma função csv_exporter dentro do módulo tech_news/collector/exporter.py capaz de exportar todas as notícias do banco de dados para um arquivo CSV, utilizando ";" como separador.](#4---crie-uma-fun%C3%A7%C3%A3o-csv_exporter-dentro-do-m%C3%B3dulo-tech_newscollectorexporterpy-capaz-de-exportar-todas-as-not%C3%ADcias-do-banco-de-dados-para-um-arquivo-csv-utilizando--como-separador)
+    - [5 - Crie uma função search_by_title dentro do módulo tech_news/analyzer/search_engine.py, que busque as notícias do banco de dados por título (parcial ou completo) e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.](#5---crie-uma-fun%C3%A7%C3%A3o-search_by_title-dentro-do-m%C3%B3dulo-tech_newsanalyzersearch_enginepy-que-busque-as-not%C3%ADcias-do-banco-de-dados-por-t%C3%ADtulo-parcial-ou-completo-e-retorne-uma-lista-de-not%C3%ADcias-encontradas-para-cada-not%C3%ADcia-encontrada-deve-se-listar-seu-t%C3%ADtulo-e-link)
+    - [6 - Crie uma função search_by_date dentro do módulo tech_news/analyzer/search_engine.py, que busque as notícias do banco de dados por data e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.](#6---crie-uma-fun%C3%A7%C3%A3o-search_by_date-dentro-do-m%C3%B3dulo-tech_newsanalyzersearch_enginepy-que-busque-as-not%C3%ADcias-do-banco-de-dados-por-data-e-retorne-uma-lista-de-not%C3%ADcias-encontradas-para-cada-not%C3%ADcia-encontrada-deve-se-listar-seu-t%C3%ADtulo-e-link)
+    - [7 - Crie uma função search_by_source dentro do módulo tech_news/analyzer/search_engine.py, que busque as notícias do banco de dados por fonte (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.](#7---crie-uma-fun%C3%A7%C3%A3o-search_by_source-dentro-do-m%C3%B3dulo-tech_newsanalyzersearch_enginepy-que-busque-as-not%C3%ADcias-do-banco-de-dados-por-fonte-apenas-uma-por-vez-e-com-nome-completo-e-exiba-uma-lista-de-not%C3%ADcias-encontradas-para-cada-not%C3%ADcia-encontrada-deve-se-listar-seu-t%C3%ADtulo-e-link)
+    - [8 - Crie uma função search_by_category dentro do módulo tech_news/analyzer/search_engine.py, que busque as notícias do banco de dados por categoria (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.](#8---crie-uma-fun%C3%A7%C3%A3o-search_by_category-dentro-do-m%C3%B3dulo-tech_newsanalyzersearch_enginepy-que-busque-as-not%C3%ADcias-do-banco-de-dados-por-categoria-apenas-uma-por-vez-e-com-nome-completo-e-exiba-uma-lista-de-not%C3%ADcias-encontradas-para-cada-not%C3%ADcia-encontrada-deve-se-listar-seu-t%C3%ADtulo-e-link)
+    - [9 - Crie uma função top_5_news dentro do módulo tech_news/analyzer/ratings.py, que liste as cinco notícias com a maior soma de compartilhamentos e comentários do banco de dados. As notícias devem ser ordenadas pela popularidade. Em caso de empate, o desempate deve ser por ordem alfabética de título.](#9---crie-uma-fun%C3%A7%C3%A3o-top_5_news-dentro-do-m%C3%B3dulo-tech_newsanalyzerratingspy-que-liste-as-cinco-not%C3%ADcias-com-a-maior-soma-de-compartilhamentos-e-coment%C3%A1rios-do-banco-de-dados-as-not%C3%ADcias-devem-ser-ordenadas-pela-popularidade-em-caso-de-empate-o-desempate-deve-ser-por-ordem-alfab%C3%A9tica-de-t%C3%ADtulo)
+    - [10 - Crie uma função top_5_categories dentro do módulo tech_news/analyzer/ratings.py, que liste as cinco categorias com maior ocorrência no banco de dados. As categorias devem ser ordenadas por ordem alfabética.](#10---crie-uma-fun%C3%A7%C3%A3o-top_5_categories-dentro-do-m%C3%B3dulo-tech_newsanalyzerratingspy-que-liste-as-cinco-categorias-com-maior-ocorr%C3%AAncia-no-banco-de-dados-as-categorias-devem-ser-ordenadas-por-ordem-alfab%C3%A9tica)
 
-- `git clone git@github.com:tryber/sd-0x-tech-news-rubric.git`.
-- Entre na pasta do repositório que você acabou de clonar:
-  - `sd-0x-tech-news-rubric`
+    `Requisitos bônus:`
+    - [11 - Preencha a função collector_menu  que se encontra no módulo tech_news/menu.py como um menu de opções, em que cada opção pede as informações necessárias para disparar uma ação. O texto exibido pelo menu deve ser exatamente:](#11---preencha-a-fun%C3%A7%C3%A3o-collector_menu--que-se-encontra-no-m%C3%B3dulo-tech_newsmenupy-como-um-menu-de-op%C3%A7%C3%B5es-em-que-cada-op%C3%A7%C3%A3o-pede-as-informa%C3%A7%C3%B5es-necess%C3%A1rias-para-disparar-uma-a%C3%A7%C3%A3o-o-texto-exibido-pelo-menu-deve-ser-exatamente)
+    - [12 - Selecione uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada.](#12---selecione-uma-op%C3%A7%C3%A3o-do-menu-de-op%C3%A7%C3%B5es-e-inserir-as-informa%C3%A7%C3%B5es-necess%C3%A1rias-a-a%C3%A7%C3%A3o-adequada-deve-ser-disparada)
+    - [13 - Preencha a função analyzer_menu  que se encontra no módulo tech_news/menu.py como um menu de opções, em que cada opção pede as informações necessárias para disparar uma ação. O texto exibido pelo menu deve ser exatamente:](#13---preencha-a-fun%C3%A7%C3%A3o-analyzer_menu--que-se-encontra-no-m%C3%B3dulo-tech_newsmenupy-como-um-menu-de-op%C3%A7%C3%B5es-em-que-cada-op%C3%A7%C3%A3o-pede-as-informa%C3%A7%C3%B5es-necess%C3%A1rias-para-disparar-uma-a%C3%A7%C3%A3o-o-texto-exibido-pelo-menu-deve-ser-exatamente)
+    - [14 - Selecione uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada e seu resultado deve ser exibido.](#14---selecione-uma-op%C3%A7%C3%A3o-do-menu-de-op%C3%A7%C3%B5es-e-inserir-as-informa%C3%A7%C3%B5es-necess%C3%A1rias-a-a%C3%A7%C3%A3o-adequada-deve-ser-disparada-e-seu-resultado-deve-ser-exibido)
 
-2. Crie o ambiente virtual para o projeto
+- [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
+- [Revisando um pull request](#revisando-um-pull-request)
+- [Avisos Finais](#avisos-finais)
 
-- `python3 -m venv .venv && source .venv/bin/activate`
+---
 
-3. Instale as dependências
+# Habilidades
 
-- `python3 -m pip install -r dev-requirements.txt`
+- Utilizar o terminal interativo do Python.
 
-4. Crie uma branch a partir da branch `main`
+- Escrever seus próprios módulos e como importá-los em outros códigos.
 
-- Verifique que você está na branch `main`
-  - Exemplo: `git branch`
-- Se não estiver, mude para a branch `main`
-  - Exemplo: `git checkout main`
-- Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
-  - Você deve criar uma branch no seguinte formato: `nome-github-nome-do-projeto`
-  - Exemplo: `git checkout -b exemplo-tech-news`
+- Manipular arquivos CSV, JSON.
 
-5. Adicione as mudanças ao _stage_ do Git e faça um `commit`
+- Analisar conteúdos HTML afim de extrair dados;
 
-- Verifique que as mudanças ainda não estão no _stage_
-  - Exemplo: `git status` (deve aparecer listada a pasta _exemplo_ em vermelho)
-- Adicione o novo arquivo ao _stage_ do Git
-  - Exemplo:
-    - `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-    - `git status` (deve aparecer listado o arquivo _exemplo/README.md_ em verde)
-- Faça o `commit` inicial
-  - Exemplo:
-    - `git commit -m 'iniciando o projeto tech-news'` (fazendo o primeiro commit)
-    - `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
+- Aplicar técnicas de raspagem para evitar problemas como bloqueio de acesso;
 
-6. Adicione a sua branch com o novo `commit` ao repositório remoto
-
-- Usando o exemplo anterior: `git push -u origin exemplo-project-name`
-
-7. Crie um novo `Pull Request` _(PR)_
-
-- Vá até a página de _Pull Requests_ do [repositório no _GitHub_](https://github.com/tryber/sd-0x-tech-news-rubric/pulls)
-- Clique no botão verde _"New pull request"_
-- Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-- Clique no botão verde _"Create pull request"_
-- Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-- **Não se preocupe em preencher mais nada por enquanto!**
-- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-tech-news-rubric/pulls) e confira que o seu _Pull Request_ está criado
+- Armazenar os dados obtidos em um banco de dados.
 
 ---
 
@@ -176,11 +180,131 @@ Para a realização deste projeto, utilizaremos um banco de dados chamado `tech_
 
 ---
 
+## Data de Entrega
+
+  - Serão `X` dias de projeto.
+  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
+
+---
+
+## Instruções para entregar seu projeto:
+
+### ANTES DE COMEÇAR A DESENVOLVER:
+
+1. Clone o repositório
+
+- `git clone https://github.com/tryber/sd-0x-tech-news.git`.
+- Entre na pasta do repositório que você acabou de clonar:
+  - `sd-0x-tech-news`
+
+2. Crie o ambiente virtual para o projeto
+
+- `python3 -m venv .venv && source .venv/bin/activate`
+
+3. Instale as dependências
+
+- `python3 -m pip install -r dev-requirements.txt`
+
+4. Crie uma branch a partir da branch `main`
+
+- Verifique que você está na branch `main`
+  - Exemplo: `git branch`
+- Se não estiver, mude para a branch `main`
+  - Exemplo: `git checkout main`
+- Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
+  - Você deve criar uma branch no seguinte formato: `nome-github-nome-do-projeto`
+  - Exemplo: `git checkout -b exemplo-tech-news`
+
+5. Adicione as mudanças ao _stage_ do Git e faça um `commit`
+
+- Verifique que as mudanças ainda não estão no _stage_
+  - Exemplo: `git status` (deve aparecer listada a pasta _exemplo_ em vermelho)
+- Adicione o novo arquivo ao _stage_ do Git
+  - Exemplo:
+    - `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
+    - `git status` (deve aparecer listado o arquivo _exemplo/README.md_ em verde)
+- Faça o `commit` inicial
+  - Exemplo:
+    - `git commit -m 'iniciando o projeto tech-news'` (fazendo o primeiro commit)
+    - `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
+
+6. Adicione a sua branch com o novo `commit` ao repositório remoto
+
+- Usando o exemplo anterior: `git push -u origin exemplo-project-name`
+
+7. Crie um novo `Pull Request` _(PR)_
+
+- Vá até a página de _Pull Requests_ do [repositório no _GitHub_](https://github.com/tryber/sd-0x-tech-news/pulls)
+- Clique no botão verde _"New pull request"_
+- Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
+- Clique no botão verde _"Create pull request"_
+- Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
+- **Não se preocupe em preencher mais nada por enquanto!**
+- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-tech-news/pulls) e confira que o seu _Pull Request_ está criado
+
+---
+
+## Durante o desenvolvimento
+
+* ⚠ **PULL REQUESTS COM ISSUES NO LINTER NÃO SERÃO AVALIADAS, ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
+
+* Faça `commits` das alterações que você fizer no código regularmente
+
+* Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
+
+* Os comandos que você utilizará com mais frequência são:
+  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
+  2. `git add` _(para adicionar arquivos ao stage do Git)_
+  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
+  4. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
+  5. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
+
+---
+
+## Linter
+
+Para garantir a qualidade do código, vamos utilizar neste projeto o linter `Flake8`.
+Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível
+e de fácil manutenção! Para rodá-lo localmente no projeto, execute o comandos abaixo:
+
+  ```bash
+python3 -m flake8
+```
+
+⚠️ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS.
+ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠️
+
+---
+
+## Testes
+
+Com as dependências já instaladas basta executar o comando:
+
+```bash
+python3 -m pytest
+```
+
+Com esse comando irá executar todos os testes do projeto.
+
+Caso o teste falhe e você queira ter um print melhor do erro basta executar o seguinte comando:
+
+```bash
+python3 -m pytest -s -vv
+```
+
+Caso precise executar apenas um arquivo de testes basta executar o comando:
+
+```bash
+python3 -m pytest tests/nomedoarquivo.py
+```
+
+---
+
 ## Requisitos obrigatórios:
 
 ### Pacote `tech_news/collector`
 
-#### 1- Deve haver uma função chamada `fetch_content` no arquivo `tech_news/collector/scrapper.py` capaz de realizar uma requisição HTTP e retornar o conteúdo como resposta.
+#### 1 - Crie uma função chamada `fetch_content` no arquivo `tech_news/collector/scrapper.py` capaz de realizar uma requisição HTTP e retornar o conteúdo como resposta.
 
 - Caso a resposta tenha o código de status diferente de `200`, deve-se retornar uma `str` vazia;
 
@@ -192,7 +316,7 @@ Para a realização deste projeto, utilizaremos um banco de dados chamado `tech_
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/collector/scrapper.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `fetch_content("https://app.betrybe.com/")`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que fetch retorna requisição com sucesso
 
@@ -202,7 +326,7 @@ Para a realização deste projeto, utilizaremos um banco de dados chamado `tech_
 
 - Será validado o tempo de sleep do fetch
 
-#### 2 - Deve haver uma função `scrape` dentro do módulo `tech_news/collector/scrapper.py` capaz de raspar as últimas notícias das N primeiras páginas.
+#### 2 - Crie uma função `scrape` dentro do módulo `tech_news/collector/scrapper.py` capaz de raspar as últimas notícias das N primeiras páginas.
 
 Utilizar os seguintes atributos:
 
@@ -277,7 +401,7 @@ Repare que no exemplo dentro da tag _p_ encontram-se duas outras tags. Esse é u
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/collector/scrapper.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `scrape(fetcher=fetch_content, pages=2)`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que por default o método scrape irá raspar notícias da primeria página
 
@@ -285,7 +409,7 @@ Repare que no exemplo dentro da tag _p_ encontram-se duas outras tags. Esse é u
 
 - Será validado o formato da lista está correta
 
-#### 3 - Deve haver uma função `csv_importer` dentro do módulo `tech_news/collector/importer.py` capaz de importar notícias a partir de um arquivo CSV, utilizando ";" como separador.
+#### 3 - Crie uma função `csv_importer` dentro do módulo `tech_news/collector/importer.py` capaz de importar notícias a partir de um arquivo CSV, utilizando ";" como separador.
 
 - Caso a extensão do arquivo seja diferente de `.csv`, uma exceção deve ser lançada;
 
@@ -315,7 +439,8 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
     ]
   }]
 ```
-##### As seguintes verificações serão feitas:
+
+**O que será verificado:**
 
 - Será validado que ao importar um arquivo inválido deverá retornar erro
 
@@ -329,9 +454,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/collector/importer.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `csv_importer("testdata.csv")`.
 
-#### 4 - Deve haver uma função `csv_exporter` dentro do módulo `tech_news/collector/exporter.py` capaz de exportar todas as notícias do banco de dados para um arquivo CSV, utilizando ";" como separador.
-
-##### As seguintes verificações serão feitas:
+#### 4 - Crie uma função `csv_exporter` dentro do módulo `tech_news/collector/exporter.py` capaz de exportar todas as notícias do banco de dados para um arquivo CSV, utilizando ";" como separador.
 
 - O arquivo exportado deve possuir o formato CSV. Caso contrário, uma exceção deve ser lançada;
 
@@ -345,6 +468,8 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/collector/exporter.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `csv_exporter("output.csv")`.
 
+**O que será verificado:**
+
 - Será validado que ao exportar um arquivo inválido irá mostrar o erro
 
 - Será validado que ao exportar um arquivo válido com sucesso
@@ -353,7 +478,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ### Pacote `tech_news/analyzer`
 
-#### 5 - Deve haver uma função `search_by_title` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por título (parcial ou completo) e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
+#### 5 - Crie uma função `search_by_title` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por título (parcial ou completo) e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
 
 - A busca deve ser _case insensitive_ e deve retornar uma lista de lista de tuplas `[("title", "url")]`;
 
@@ -363,7 +488,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/search_engine.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `search_by_title("Musk")`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar uma notícia pelo título com sucesso
 
@@ -371,7 +496,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 - Será validado que é possível buscar uma notícia pelo título com case sensitive com sucesso
 
-#### 6 - Deve haver uma função `search_by_date` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por data e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
+#### 6 - Crie uma função `search_by_date` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por data e retorne uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
 
 - A busca deve retornar uma lista de tuplas `[("title", "url")]`;
 
@@ -383,7 +508,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/search_engine.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `search_by_date("2020-11-11")`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar uma notícia pela data com sucesso
 
@@ -391,7 +516,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 - Sera validado que ao buscar por uma data com formato inválido, deve retornar `Data inválida`
 
-#### 7 - Deve haver uma função `search_by_source` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por fonte (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
+#### 7 - Crie uma função `search_by_source` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por fonte (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
 
 - A busca deve ser _case insensitive_ e deve retornar uma lista de tuplas `[("title", "url")]`;
 
@@ -401,7 +526,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/search_engine.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `search_by_source("Venture Beat")`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar uma notícia pela fonte com sucesso
 
@@ -409,7 +534,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 - Será validado que é possível buscar uma notícia pela fonte com case sensitive com sucesso
 
-#### 8 - Deve haver uma função `search_by_category` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por categoria (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
+#### 8 - Crie uma função `search_by_category` dentro do módulo `tech_news/analyzer/search_engine.py`, que busque as notícias do banco de dados por categoria (apenas uma por vez e com nome completo) e exiba uma lista de notícias encontradas. Para cada notícia encontrada, deve-se listar seu título e link.
 
 - A busca deve ser _case insensitive_ e deve retornar uma lista de tuplas `[("title", "url")]`;
 
@@ -419,7 +544,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/search_engine.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `search_by_category("Tesla")`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar uma notícia pela categoria com sucesso
 
@@ -427,7 +552,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 - Será validado que é possível buscar uma notícia pela categoria com case sensitive com sucesso
 
-#### 9 - Deve haver uma função `top_5_news` dentro do módulo `tech_news/analyzer/ratings.py`, que liste as cinco notícias com a maior soma de compartilhamentos e comentários do banco de dados. As notícias devem ser ordenadas pela popularidade. Em caso de empate, o desempate deve ser por ordem alfabética de título.
+#### 9 - Crie uma função `top_5_news` dentro do módulo `tech_news/analyzer/ratings.py`, que liste as cinco notícias com a maior soma de compartilhamentos e comentários do banco de dados. As notícias devem ser ordenadas pela popularidade. Em caso de empate, o desempate deve ser por ordem alfabética de título.
 
 - As top 5 notícias da análise devem ser retornadas em uma lista de tuplas `[("title", "url")]`;
 
@@ -439,15 +564,13 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/ratings.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `top_5_news()`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar as cinco top notícias
 
 - Será validado que é possível buscar as cinco top notícias e retornar vazio caso não tenha nenhuma notícia
 
-#### 10 - Deve haver uma função `top_5_categories` dentro do módulo `tech_news/analyzer/ratings.py`, que liste as cinco categorias com maior ocorrência no banco de dados. As categorias devem ser ordenadas por ordem alfabética.
-
-##### As seguintes verificações serão feitas:
+#### 10 - Crie uma função `top_5_categories` dentro do módulo `tech_news/analyzer/ratings.py`, que liste as cinco categorias com maior ocorrência no banco de dados. As categorias devem ser ordenadas por ordem alfabética.
 
 - As top 5 categorias da análise devem ser retornadas em uma lista no formato `["category"]`;
 
@@ -459,7 +582,7 @@ Obs: Caso o arquivo não exista e tenha extensão inválida, a exceção lançad
 
 ✍️  Teste manual: abra um terminal Python importando esta função através do comando `python3 -i tech_news/analyzer/ratings.py` e invoque a função utilizando diferentes parâmetros. Exemplo: `top_5_categories()`.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível buscar as cinco top categorias
 
@@ -496,7 +619,7 @@ Selecione uma das opções a seguir:
 
 ✍️  Teste manual: dentro de um ambiente virtual onde seu projeto foi configurado, digite o comando `tech-news-collector`, o menu deve ser exibido. Isto acontece pois durante a configuração inicial do projeto já configuramos para que a função seja corretamente chamada quando este comando seja invocado.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível listar o menu collector no console
 
@@ -504,7 +627,7 @@ Selecione uma das opções a seguir:
 
 - Será validado que é possível retornar um erro do menu collector quando opção inválida
 
-#### 12 - Ao selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada.
+#### 12 - Selecione uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada.
 
 - Caso a opção `1` seja selecionada, a importação deve ser feita utilizando a função `csv_importer`;
 
@@ -518,7 +641,7 @@ Selecione uma das opções a seguir:
 
 ✍️  Teste manual: dentro de um ambiente virtual onde seu projeto foi configurado, digite o comando `tech-news-collector`, assim você conseguirá interagir com o menu.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível executar a opção importar
 
@@ -556,7 +679,7 @@ Selecione uma das opções a seguir:
 
 ✍️  Teste manual: dentro de um ambiente virtual onde seu projeto foi configurado, digite o comando `tech-news-analyzer`, o menu deve ser exibido. Isto acontece pois durante a configuração inicial do projeto já configuramos para que a função seja corretamente chamada quando este comando seja invocado.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível listar o menu analyzer no console
 
@@ -564,7 +687,7 @@ Selecione uma das opções a seguir:
 
 - Será validado que é possível retornar um erro do menu analyzer quando opção inválida
 
-#### 14 - Ao selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada e seu resultado deve ser exibido.
+#### 14 - Selecione uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada e seu resultado deve ser exibido.
 
 - Caso a opção `1` seja selecionada, a importação deve ser feita utilizando a função `search_by_title` e seu resultado deve ser impresso em tela;
 
@@ -584,7 +707,7 @@ Selecione uma das opções a seguir:
 
 ✍️  Teste manual: dentro de um ambiente virtual onde seu projeto foi configurado, digite o comando `tech-news-analyzer`, assim você conseguirá interagir com o menu.
 
-##### As seguintes verificações serão feitas:
+**O que será verificado:**
 
 - Será validado que é possível executar a opção buscar por título
 
@@ -600,39 +723,35 @@ Selecione uma das opções a seguir:
 
 ---
 
-### DURANTE O DESENVOLVIMENTO
+## Depois de terminar o desenvolvimento
 
-- Faça `commits` das alterações que você fizer no código regularmente
+Para **"entregar"** seu projeto, siga os passos a seguir:
 
-- Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
+* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
+  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
+  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
+  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`
 
-- Os comandos que você utilizará com mais frequência são:
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
-  2. `git add` _(para adicionar arquivos ao stage do Git)_
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
+Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
----
-
-### DEPOIS DE TERMINAR O DESENVOLVIMENTO (OPCIONAL)
-
-Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus colegas, faça o seguinte:
-
-- Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
-
-  - No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
-
-  - No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
-
-  - No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
-
-Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
+⚠ Lembre-se que garantir que todas as _issues_ comentadas pelo **Lint** estão resolvidas! ⚠
 
 ---
 
-### REVISANDO UM PULL REQUEST
+### Revisando um pull request
 
-Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
+À medida que você e as outras pessoas que estudam na Trybe forem entregando os projetos, vocês receberão um alerta via Slack para também fazer a revisão dos Pull Requests dos seus colegas. Fiquem atentos às mensagens do "Pull Reminders" no Slack!
 
-#VQV 🚀
+Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você.
+
+---
+
+# Avisos Finais
+
+Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
+
+Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://be-trybe.typeform.com/to/ZTeR4IbH)
+
+O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
+
+---

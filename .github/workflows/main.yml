@@ -1,16 +1,10 @@
 on:
   pull_request:
     types: [opened, synchronize]
+
 jobs:
-  evaluator_job:
-    name: Evaluator Job
+  flake8:
     runs-on: ubuntu-18.04
-    services:
-      mongodb:
-        image: mongo
-        ports:
-          - "27017:27017"
-        options: -v ${{ github.workspace }}:/github/workspace
     steps:
       - uses: actions/checkout@v2
       - name: Flake8 Linter Step
@@ -19,6 +13,19 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           pr_number: ${{ github.event.number }}
+          
+  evaluator_job:
+    name: Evaluator Job
+    runs-on: ubuntu-18.04
+    needs: [flake8]
+    services:
+      mongodb:
+        image: mongo
+        ports:
+          - "27017:27017"
+        options: -v ${{ github.workspace }}:/github/workspace
+    steps:
+      - uses: actions/checkout@v2
       - name: Pytest Evaluator Step
         uses: betrybe/pytest-evaluator-action@v1.3
         with:
